@@ -1,3 +1,5 @@
+// Many thanks to https://github.com/maxdow/skycons
+
 (function(global) {
   "use strict";
 
