@@ -1,0 +1,7 @@
+function trainInit() {
+
+}
+
+function trainRefresh() {
+
+}
