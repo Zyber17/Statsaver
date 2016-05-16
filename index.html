@@ -5,13 +5,33 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/index.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="js/skycons.js"></script>
 		<script src="js/settings.js"></script>
+		<script src="js/panels/weather.js"></script>
 		<script src="js/index.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
 			<ul id="panelwrapper">
+				<li class="panel" id="time"></li>
+				<li class="panel transit train" id="trainNorth"></li>
+				<li class="panel" id="weather">
+					<canvas id="skycon" width="128" height="128"></canvas>
+					<div id="data">
+						<div class="wdata" id="temp">
 
+						</div>
+						<div class="wdata" id="highLowPrecip">
+							<ul>
+								<li id="highItem">High: <span id="high"></span></li>
+								<li id="lowItem">Low: <span id="low"></span></li>
+								<li id="precipItem">Precip Chance: <span id="precip"></span>%</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="panel transit train" id="trainSouth"></li>
+				<li class="panel transit" id="bus"></li>
 			</ul>
 		</div>
 	</body>
