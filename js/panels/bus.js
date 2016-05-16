@@ -1,11 +1,3 @@
-function busInit() {
+function bus() {
 
-}
-
-function busRefresh() {
-
-}
-
-function busGet() {
-	
 }
