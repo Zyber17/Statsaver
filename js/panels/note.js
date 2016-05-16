@@ -1,5 +1,5 @@
 function note() {
-	$.get(window.notePath + '?time=' + (new Date).getTime(), function(data) {
+	$.get(window.notePath + '?time=' + (new Date).getTime(), function(data) { // Append time to make sure we don't get a cached version
 		if (/\S/.test(data)) {
 			$('#note').html(data);
 		} else {
