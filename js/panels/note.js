@@ -5,12 +5,12 @@ function noteInit() {
 function note() {
 	$.get(window.notePath + '?time=' + (new Date).getTime(), function(data) { // Append time to make sure we don't get a cached version
 		if (/\S/.test(data)) {
-			$('#note').html(data.replace('\n','<br><br>'));
+			$('#noteText').html(data.replace('\n','<br><br>'));
 		} else {
-			$('#note').html('No note to see here');
+			$('#noteText').html('No note to see here');
 		}
 	}).fail(function() {
-		$('#note').html('No note to see here');
+		$('#noteText').html('No note to see here');
 	});
 
 	var noteRefresh = setTimeout(function () {
