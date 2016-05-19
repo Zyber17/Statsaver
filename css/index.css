@@ -1,6 +1,6 @@
 body {
-	background: #fff;
-	color: #111;
+	background: #ddd;
+	color: #fff;
 	font-family:'Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;
 	font-size: 18px;
 }
@@ -16,6 +16,96 @@ a:active {
 	color: #e5e5e5;
 }
 
+br {
+	height: 1em;
+}
+
 #wrapper {
-	
+	position: absolute;
+	left: 50%;
+	margin-left: -720px;
+	top: 50%;
+	margin-top: -450px;
+	width: 1440px;
+	height: 900px;
+	border: 1px solid #F0F;
+	background: #000;
+}
+
+#wrapper ul#panelwrapper {
+	width: 1440px;
+	height: 900px;
+	position: relative;
+}
+
+#wrapper ul#panelwrapper li.panel {
+	display: block;
+	position: absolute;
+	border: 1px solid #fff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#wrapper ul#panelwrapper li.panel#time {
+	width: 1440px;
+	height: 20px;
+	top: 0;
+	left: 0;
+	text-align: center;
+}
+
+#wrapper ul#panelwrapper li.panel#note {
+	left: 620px;
+	top: 20px;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+#wrapper ul#panelwrapper li.panel#note p#noteText {
+	text-overflow: ellipsis;
+}
+
+#wrapper ul#panelwrapper li.panel#weather {
+	top: 20px;
+	right: 0;
+}
+
+#wrapper ul#panelwrapper li.panel#weather canvas#skycon, #wrapper ul#panelwrapper li.panel#weather div#data {
+	display: inline-block;
+	height: 128px;
+}
+
+ #wrapper ul#panelwrapper li.panel#weather div#data {
+	 width: 120px;
+	 vertical-align: top;
+ }
+
+#wrapper ul#panelwrapper li.panel#weather div#data #temp {
+	font-size: 100px;
+	font-weight: 200;
+	vertical-align: top;
+}
+
+#wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li {
+	display: inline-block;
+	width: 51px;
+}
+
+
+#wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li#highItem {
+	color: #feccba;
+}
+
+#wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li#lowItem {
+	text-align: right;
+	color: #c6efff;
+}
+
+#wrapper ul#panelwrapper li.panel#bus {
+	bottom: 0;
+	right: 0;
 }
