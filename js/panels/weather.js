@@ -7,9 +7,9 @@ function weatherInit() {
 			"main": "#ffffff",
   			"cloud": "#c8dee7",
   			"sun": "#febb09",
-  			"moon": "#ecf9fe",
-  			"fog": "#c8dee7",
-  			"snow": "#4ec5fe",
+  			"moon": "#feeebe",
+  			"fog": "#9aafb7",
+  			"snow": "#ffffff",
   			"rain": "#29a3e1",
   			"leaf": "#e56e2f"
 		}
