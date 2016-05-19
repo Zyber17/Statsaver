@@ -324,7 +324,7 @@
         c = cw * 0.21,
         d = cw * 0.28;
 
-    ctx.fillStyle = color.fog || color;
+    ctx.fillStyle = color.cloud || color;
     puffs(ctx, t, cx, cy, a, b, c, d);
 
     ctx.globalCompositeOperation = 'destination-out';
