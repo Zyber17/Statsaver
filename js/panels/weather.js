@@ -11,6 +11,7 @@ function weatherInit() {
 	});
 	skycons.add('skycon', Skycons.PARTLY_CLOUDY_NIGHT);
 	skycons.play();
+	weather();
 }
 
 function weather() {
@@ -23,4 +24,7 @@ function weather() {
 		skycons.set('skycon', data.currently.icon);
 	});
 
+	var weatherRefresh = setTimeout(function () {
+			weather();
+	}, 120000);
 }
