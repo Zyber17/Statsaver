@@ -3,6 +3,7 @@ $(document).ready(function() {
 });
 
 function init() {
+	timeInit();
 	weatherInit();
 	busInit();
 	// train();
