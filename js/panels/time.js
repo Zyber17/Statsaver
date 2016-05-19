@@ -15,6 +15,9 @@ function time(autoRefresh) {
 		hours %= 12;
 		ampm = 'PM';
 	}
+	if (mins < 10) {
+		mins = '0' + mins;
+	}
 
 	$('#time').html(hours + ':' + mins + ' ' + ampm);
 
