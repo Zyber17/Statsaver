@@ -20,7 +20,7 @@ function weather() {
 		$('#temp').html(Math.round(data.currently.temperature));
 		$('#high').html(Math.round(data.daily.data[0].temperatureMin));
 		$('#low').html(Math.round(data.daily.data[0].temperatureMax));
-		$('#precip').html(Math.round(data.currently.precipProbability * 100));
+		// $('#precip').html(Math.round(data.currently.precipProbability * 100));
 		skycons.set('skycon', data.currently.icon);
 	});
 
