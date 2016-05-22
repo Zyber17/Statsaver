@@ -1,17 +1,15 @@
 function busInit() {
-	bus(false);
-	var initBus = setTimeout(function () {
-		bus(true);
-	}, nextMinute());
+	bus();
 }
 
-function bus(autoRefresh) {
+function bus() {
 	console.log(new Date());
 
 	var url = 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=' + window.ctaBusKey + '&stpid=' + window.busStop;
 	console.log(url);
 	var buslist = $('#busList');
 	buslist.empty();
+
 	$.get(url, function(data) {
 		$(data).find('prd').each(function() {
 			var time = $(this).find('prdtm').text();
@@ -25,9 +23,8 @@ function bus(autoRefresh) {
 		});
 	});
 
-	if (autoRefresh) {
-		var busRefresh = setTimeout(function () {
-			bus(true);
-		}, nextMinute());
-	}
+
+	var busRefresh = setTimeout(function () {
+		bus();
+	}, nextMinute());
 }

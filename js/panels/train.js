@@ -1,15 +1,10 @@
 function trainInit() {
-	train(false);
-	var initBus = setTimeout(function () {
-		train(true);
-	}, nextMinute());
+	train();
 }
 
-function train(autoRefresh) {
+function train() {
 
-	if (autoRefresh) {
-		var busRefresh = setTimeout(function () {
-			bus(true);
-		}, nextMinute());
-	}
+	var busRefresh = setTimeout(function () {
+		bus(true);
+	}, nextMinute());
 }

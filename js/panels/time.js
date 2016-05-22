@@ -1,11 +1,8 @@
 function timeInit() {
-	time(false);
-	var initTime = setTimeout(function () {
-		time(true);
-	}, nextMinute());
+	time();
 }
 
-function time(autoRefresh) {
+function time() {
 	var now   = new Date();
 	var hours = now.getHours();
 	var ampm  = 'AM';
@@ -21,9 +18,7 @@ function time(autoRefresh) {
 
 	$('#time').html(hours + ':' + mins + ' ' + ampm);
 
-	if (autoRefresh) {
-		var timeRefresh = setTimeout(function () {
-			time(true);
-		}, nextMinute());
-	}
+	var timeRefresh = setTimeout(function () {
+		time();
+	}, nextMinute());
 }
