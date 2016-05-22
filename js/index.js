@@ -6,6 +6,6 @@ function init() {
 	timeInit();
 	weatherInit();
 	busInit();
-	// train();
+	trainInit();
 	noteInit();
 }

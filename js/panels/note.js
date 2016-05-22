@@ -15,5 +15,5 @@ function note() {
 
 	var noteRefresh = setTimeout(function () {
 		note();
-	}, 60000);
+	}, nextMinute());
 }

@@ -31,5 +31,5 @@ function weather() {
 
 	var weatherRefresh = setTimeout(function () {
 			weather();
-	}, 120000);
+	}, (nextMinute() + 240000));
 }
