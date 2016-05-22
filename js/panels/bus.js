@@ -9,6 +9,7 @@ function bus(autoRefresh) {
 	console.log(new Date());
 
 	var url = 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=' + window.ctaBusKey + '&stpid=' + window.busStop;
+	console.log(url);
 	var buslist = $('#busList');
 	buslist.empty();
 	$.get(url, function(data) {
@@ -19,6 +20,7 @@ function bus(autoRefresh) {
 			var when = train - now;
 			when/=60000; // Get minutes from now from miliseconds from now
 			when = Math.floor(when);
+			if (when < 0) when = 0;
 			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ', ETA: ' + when + 'min</li>');
 		});
 	});
