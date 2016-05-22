@@ -17,7 +17,7 @@ function weatherInit() {
 	skycons.add('skycon', Skycons.PARTLY_CLOUDY_NIGHT);
 	skycons.play();
 
-	time = $('#temp');
+	temp = $('#temp');
 	high = $('#high');
 	low  = $('#low');
 
