@@ -1,4 +1,7 @@
+var clock;
+
 function timeInit() {
+	clock = $('#time');
 	time();
 }
 
@@ -16,7 +19,7 @@ function time() {
 		mins = '0' + mins;
 	}
 
-	$('#time').html(hours + ':' + mins + ' ' + ampm);
+	clock.html(hours + ':' + mins + ' ' + ampm);
 
 	var timeRefresh = setTimeout(function () {
 		time();
