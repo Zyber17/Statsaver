@@ -4,7 +4,7 @@ function trainInit() {
 
 function train() {
 
-	var busRefresh = setTimeout(function () {
-		bus(true);
-	}, nextMinute());
+	schedule(function() {
+		train();
+	}, 1);
 }
