@@ -11,10 +11,13 @@ function time() {
 	var ampm  = 'AM';
 	var mins  = now.getMinutes();
 
-	if (hours > 12) {
+	if (hours == 0) {
+		hours = 12;
+	} else if (hours > 12) {
 		hours %= 12;
 		ampm = 'PM';
 	}
+
 	if (mins < 10) {
 		mins = '0' + mins;
 	}
