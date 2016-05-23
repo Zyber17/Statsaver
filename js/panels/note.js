@@ -16,7 +16,7 @@ function note() {
 		noteText.html('No note to see here');
 	});
 
-	var noteRefresh = setTimeout(function () {
+	schedule(function() {
 		note();
-	}, nextMinute());
+	}, 1);
 }

@@ -34,7 +34,7 @@ function weather() {
 		skycons.set('skycon', data.currently.icon);
 	});
 
-	var weatherRefresh = setTimeout(function () {
-			weather();
-	}, (nextMinute() + 240000));
+	schedule(function() {
+		weather();
+	}, 5);
 }

@@ -21,7 +21,7 @@ function time() {
 
 	clock.html(hours + ':' + mins + ' ' + ampm);
 
-	var timeRefresh = setTimeout(function () {
+	schedule(function() {
 		time();
-	}, nextMinute());
+	}, 1);
 }

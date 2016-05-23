@@ -1,4 +1,5 @@
 var buslist;
+var url = 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=' + window.ctaBusKey + '&stpid=' + window.busStop;
 
 function busInit() {
 	buslist = $('#busList');
@@ -6,11 +7,6 @@ function busInit() {
 }
 
 function bus() {
-	console.log(new Date());
-
-	var url = 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=' + window.ctaBusKey + '&stpid=' + window.busStop;
-	console.log(url);
-
 	buslist.empty();
 
 	$.get(url, function(data) {
@@ -26,7 +22,8 @@ function bus() {
 		});
 	});
 
-	var busRefresh = setTimeout(function () {
+
+	schedule((function() {
 		bus();
-	}, nextMinute());
+	}), 1);
 }
