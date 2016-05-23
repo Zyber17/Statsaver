@@ -109,3 +109,23 @@ br {
 	bottom: 0;
 	right: 0;
 }
+
+#wrapper ul#panelwrapper li.panel#trainNorth {
+	top: 20px;
+	left: 0;
+}
+
+#wrapper ul#panelwrapper li.panel#trainSouth {
+	bottom: 0;
+	left: 0;
+}
+
+#wrapper ul#panelwrapper li.panel.train ul li.g {
+	color: #55ff5a;
+}
+#wrapper ul#panelwrapper li.panel.train ul li.red {
+	color: #fc3b46;
+}
+#wrapper ul#panelwrapper li.panel.train ul li.org {
+	color: #fd9544;
+}
