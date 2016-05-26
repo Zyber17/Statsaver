@@ -9,8 +9,8 @@ function trainInit() {
 }
 
 function train() {
-	trainNorth.empty();
-	trainSouth.empty();
+	var orgN = Infinity, orgS = Infinity, redN = Infinity, redS = Infinity, greN = Infinity, greS = Infinity;
+	var orgNS, orgSS, redNS, redSS, greNS, greSS;
 
 	$.get(turl, function(data) {
 		$(data).find('eta').each(function() {
@@ -21,16 +21,68 @@ function train() {
 			when/=60000; // Get minutes from now from miliseconds from now
 			when = Math.floor(when);
 			if (when < 0) when = 0;
+
+
 			if (parseInt($(this).find('trDr').text()) == 1) {
-				trainNorth.append('<li class="'+$(this).find('rt').text().toLowerCase()+'">' + $(this).find('destNm').text() + ', ETA: ' + when + 'min</li>');
+				if ($(this).find('rt').text() == 'Org' && when < orgN) {
+					orgN  = when;
+					orgNS = $(this).find('destNm').text()
+				} else if ($(this).find('rt').text() == 'Red' && when < redN) {
+					redN  = when;
+					redNS = $(this).find('destNm').text();
+				} else if ($(this).find('rt').text() == 'G' && when < greN) {
+					greN  = when;
+					greNS = $(this).find('destNm').text();
+				}
 			} else {
-				trainSouth.append('<li class="'+$(this).find('rt').text().toLowerCase()+'">' + $(this).find('destNm').text() + ', ETA: ' + when + 'min</li>');
+
+				if ($(this).find('rt').text() == 'Org' && when < orgS) {
+					console.log('OS '+when);
+					orgS = when;
+					console.log('OS '+orgS);
+					orgSS = $(this).find('destNm').text();
+				} else if ($(this).find('rt').text() == 'Red' && when < redS) {
+					redS  = when;
+					redSS = $(this).find('destNm').text();
+				} else if ($(this).find('rt').text() == 'G' && when < greS) {
+					greS  = when;
+					greSS = $(this).find('destNm').text();
+				}
 			}
 
 		});
+
+		var north = [
+			{eta: orgN, routeColor: 'org', routeName: redNS},
+			{eta: redN, routeColor: 'red', routeName: orgNS},
+			{eta: greN, routeColor: 'gre', routeName: greNS}
+		];
+
+		var south = [
+			{eta: orgS, routeColor: 'org', routeName: redSS},
+			{eta: redS, routeColor: 'red', routeName: orgSS},
+			{eta: greS, routeColor: 'gre', routeName: greSS}
+		];
+
+		north.sort(function(a, b) {
+			return a.eta - b.eta;
+		});
+		south.sort(function(a, b) {
+			return a.eta - b.eta;
+		});
+
+		trainNorth.empty();
+		trainSouth.empty();
+
+		for (var i = 0; i < 3; i++) {
+			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+', ETA: '+north[i].eta+'</li>');
+			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+', ETA: '+south[i].eta+'</li>');
+		}
+
+
+		schedule(function() {
+			train();
+		}, 1);
 	});
 
-	schedule(function() {
-		train();
-	}, 1);
 }
