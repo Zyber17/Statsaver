@@ -37,9 +37,7 @@ function train() {
 			} else {
 
 				if ($(this).find('rt').text() == 'Org' && when < orgS) {
-					console.log('OS '+when);
 					orgS = when;
-					console.log('OS '+orgS);
 					orgSS = $(this).find('destNm').text();
 				} else if ($(this).find('rt').text() == 'Red' && when < redS) {
 					redS  = when;
@@ -75,8 +73,8 @@ function train() {
 		trainSouth.empty();
 
 		for (var i = 0; i < 3; i++) {
-			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+', ETA: '+north[i].eta+'</li>');
-			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+', ETA: '+south[i].eta+'</li>');
+			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+', ETA: '+north[i].eta+'mins</li>');
+			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+', ETA: '+south[i].eta+'mins</li>');
 		}
 
 
