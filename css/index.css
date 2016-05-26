@@ -2,7 +2,7 @@ body {
 	background: #ddd;
 	color: #fff;
 	font-family:'Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;
-	font-size: 18px;
+	font-size: 26px;
 }
 
 a:link, a:visited {
@@ -23,7 +23,7 @@ br {
 #wrapper {
 	position: absolute;
 	left: 50%;
-	margin-left: -720px;
+	margin-left: -728px;
 	top: 50%;
 	margin-top: -450px;
 	width: 1440px;
@@ -51,15 +51,15 @@ br {
 
 #wrapper ul#panelwrapper li.panel#time {
 	width: 1440px;
-	height: 20px;
+	height: 28px;
 	top: 0;
 	left: 0;
 	text-align: center;
 }
 
 #wrapper ul#panelwrapper li.panel#note {
-	left: 620px;
-	top: 20px;
+	left: 628px;
+	top: 28px;
 	width: 200px;
 	height: 200px;
 	overflow: hidden;
@@ -70,7 +70,7 @@ br {
 }
 
 #wrapper ul#panelwrapper li.panel#weather {
-	top: 20px;
+	top: 28px;
 	right: 0;
 }
 
@@ -80,7 +80,7 @@ br {
 }
 
  #wrapper ul#panelwrapper li.panel#weather div#data {
-	 width: 120px;
+	 width: 180px;
 	 vertical-align: top;
  }
 
@@ -92,7 +92,7 @@ br {
 
 #wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li {
 	display: inline-block;
-	width: 51px;
+	width: 80px;
 }
 
 
@@ -111,7 +111,7 @@ br {
 }
 
 #wrapper ul#panelwrapper li.panel#trainNorth {
-	top: 20px;
+	top: 28px;
 	left: 0;
 }
 
