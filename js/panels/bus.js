@@ -20,10 +20,9 @@ function bus() {
 			if (when < 0) when = 0;
 			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ', ETA: ' + when + 'min</li>');
 		});
+
+		schedule((function() {
+			bus();
+		}), 1);
 	});
-
-
-	schedule((function() {
-		bus();
-	}), 1);
 }
