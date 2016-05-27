@@ -18,7 +18,7 @@ function bus() {
 			when/=60000; // Get minutes from now from miliseconds from now
 			when = Math.floor(when);
 			if (when < 0) when = 0;
-			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ', ETA: ' + when + 'min</li>');
+			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ' <span class="min">' + when + '</span></li>');
 		});
 
 		schedule((function() {

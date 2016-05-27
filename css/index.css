@@ -109,7 +109,13 @@ br {
 	bottom: 0;
 	right: 0;
 }
-
+#wrapper ul#panelwrapper li#bus ul#busList li {
+	background-color: #444;
+	border-bottom: 2px solid #111;
+}
+#wrapper ul#panelwrapper li#bus ul#busList li:last-of-type {
+	border-bottom: none;
+}
 #wrapper ul#panelwrapper li.panel#trainNorth {
 	top: 28px;
 	left: 0;
@@ -119,13 +125,27 @@ br {
 	bottom: 0;
 	left: 0;
 }
-
+#wrapper ul#panelwrapper li.panel.train ul li, #wrapper ul#panelwrapper li#bus ul#busList li {
+	padding: 10px;
+	width: 280px;
+}
+#wrapper ul#panelwrapper li.panel.train ul li {
+	color: #ffffff;
+}
+#wrapper ul#panelwrapper li.panel.train ul li.wht {
+	background-color: #ffffff;
+	color: #48aa47;
+}
 #wrapper ul#panelwrapper li.panel.train ul li.gre {
-	color: #55ff5a;
+	background-color: #48aa47;
 }
 #wrapper ul#panelwrapper li.panel.train ul li.red {
-	color: #fc3b46;
+	background-color: #b11b27;
 }
 #wrapper ul#panelwrapper li.panel.train ul li.org {
-	color: #fd9544;
+	background-color: #d57636;
+}
+span.min {
+	padding-left: 20px;
+	float: right;
 }
