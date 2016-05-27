@@ -9,7 +9,7 @@ function noteInit() {
 function note() {
 	$.get(window.notePath + '?time=' + (new Date).getTime(), function(data) { // Append time to make sure we don't get a cached version
 		if (/\S/.test(data)) {
-			if( data != oldNote) {
+			if(data != oldNote) {
 				oldNote = data;
 				noteI.fadeIn(1000);
 				noteText.fadeOut(1000, 'swing', false, function() {
