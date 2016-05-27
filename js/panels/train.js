@@ -10,41 +10,51 @@ function trainInit() {
 
 function train() {
 	var orgN = Infinity, orgS = Infinity, redN = Infinity, redS = Infinity, greN = Infinity, greS = Infinity;
-	var orgNS, orgSS, redNS, redSS, greNS, greSS, greSSInv = false;
+	var orgNS, orgSS, redNS, redSS, greNS, greSS, greSSInv = false, orgND, orgSD, redND, redSD, greND, greSD;
 
 	$.get(turl, function(data) {
 		$(data).find('eta').each(function() {
-			var time = $(this).find('arrT').text();
-			var train = new Date(parseInt(time.substr(0,4)), parseInt((time.substr(4,2) - 1)), parseInt(time.substr(6,2)), (parseInt((time.substr(9,2))) +1), parseInt(time.substr(12,2)), parseInt(time.substr(13,2))); // MAKESURE TO DELETE THE +1, that just accounts for
-			var now = new Date();
-			var when = train - now;
-			when/=60000; // Get minutes from now from miliseconds from now
-			when = Math.floor(when);
-			if (when < 0) when = 0;
-
+			var when;
+			if (parseInt($(this).find('isApp').text()) == 1) {
+				when = 0;
+			} else {
+				var time = $(this).find('arrT').text();
+				var train = new Date(parseInt(time.substr(0,4)), parseInt((time.substr(4,2) - 1)), parseInt(time.substr(6,2)), (parseInt((time.substr(9,2))) +1), parseInt(time.substr(12,2)), parseInt(time.substr(13,2))); // MAKESURE TO DELETE THE +1, that just accounts for
+				var now = new Date();
+				when = train - now;
+				when/=60000; // Get minutes from now from miliseconds from now
+				when = Math.floor(when);
+				if (when < 0) when = 0;
+			}
 
 			if (parseInt($(this).find('trDr').text()) == 1) {
 				if ($(this).find('rt').text() == 'Org' && when < orgN) {
 					orgN  = when;
-					orgNS = $(this).find('destNm').text()
+					orgNS = $(this).find('destNm').text();
+					orgND = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 				} else if ($(this).find('rt').text() == 'Red' && when < redN) {
 					redN  = when;
 					redNS = $(this).find('destNm').text();
+					redND = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 				} else if ($(this).find('rt').text() == 'G' && when < greN) {
 					greN  = when;
 					greNS = $(this).find('destNm').text();
+					greND = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 				}
 			} else {
 
 				if ($(this).find('rt').text() == 'Org' && when < orgS) {
 					orgS = when;
 					orgSS = $(this).find('destNm').text();
+					orgSD = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 				} else if ($(this).find('rt').text() == 'Red' && when < redS) {
 					redS  = when;
 					redSS = $(this).find('destNm').text();
+					redSD = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 				} else if ($(this).find('rt').text() == 'G' && when < greS) {
 					greS  = when;
 					greSS = $(this).find('destNm').text();
+					greSD = (parseInt($(this).find('isDly').text()) == 1 ? '*' : '');
 					var stp = parseInt($(this).find('destSt').text());
 					if (stp == 30139 || stp == 30140) {
 						greSSInv = true;
@@ -57,15 +67,15 @@ function train() {
 		});
 
 		var north = [
-			{eta: orgN, routeColor: 'org', routeName: orgNS},
-			{eta: redN, routeColor: 'red', routeName: redNS},
-			{eta: greN, routeColor: 'gre', routeName: greNS}
+			{eta: orgN, routeColor: 'org', routeName: orgNS, delay: orgND},
+			{eta: redN, routeColor: 'red', routeName: redNS, delay: redND},
+			{eta: greN, routeColor: 'gre', routeName: greNS, delay: greND}
 		];
 
 		var south = [
-			{eta: orgS, routeColor: 'org', routeName: orgSS},
-			{eta: redS, routeColor: 'red', routeName: redSS},
-			{eta: greS, routeColor: (greSSInv ? 'wht' : 'gre'), routeName: greSS}
+			{eta: orgS, routeColor: 'org', routeName: orgSS, delay: orgSD},
+			{eta: redS, routeColor: 'red', routeName: redSS, delay: redSD},
+			{eta: greS, routeColor: (greSSInv ? 'wht' : 'gre'), routeName: greSS, delay: greSD}
 		];
 
 		north.sort(function(a, b) {
@@ -83,8 +93,8 @@ function train() {
 		sNew.hide();
 
 		for (var i = 0; i < 3; i++) {
-			nNew.append('<li class="'+north[i].routeColor+'">'+north[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
-			sNew.append('<li class="'+south[i].routeColor+'">'+south[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'</span></li>');
+			nNew.append('<li class="'+north[i].routeColor+'">'+north[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+north[i].delay+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
+			sNew.append('<li class="'+south[i].routeColor+'">'+south[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+south[i].delay+(south[i].eta < 1 ? 'Due' : south[i].eta)+'</span></li>');
 		}
 
 		nNew.fadeIn(1000, function() {
