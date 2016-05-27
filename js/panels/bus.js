@@ -18,7 +18,8 @@ function bus() {
 			when/=60000; // Get minutes from now from miliseconds from now
 			when = Math.floor(when);
 			if (when < 0) when = 0;
-			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ' <span class="min">' + when + '</span></li>');
+			if (!(parseInt($(this).find('rt').text()) == 18 && parseInt($(this).find('stpid').text()) == 1580))
+			buslist.append('<li>' + $(this).find('rt').text() + ' ' + $(this).find('des').text() + ' <span class="min">' + (when < 1 ? 'Due' : when) + '</span></li>');
 		});
 
 		schedule((function() {
