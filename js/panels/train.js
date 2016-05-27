@@ -85,8 +85,8 @@ function train() {
 			return a.eta - b.eta;
 		});
 
-		trainNorth.append('<ul id="trainNNew" class="trainUL">');
-		trainSouth.append('<ul id="trainSNew" class="trainUL">');
+		trainNorth.append('<ul id="trainNNew" class="fadeUL">');
+		trainSouth.append('<ul id="trainSNew" class="fadeUL">');
 		var nNew = $('#trainNNew'), sNew = $('#trainSNew'), nOld = $('#trainN'), sOld = $('#trainS');
 
 		nNew.hide();

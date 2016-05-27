@@ -1,13 +1,15 @@
-var buslist;
+var busI;
 var burl = 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=' + window.ctaBusKey + '&stpid=' + window.busStop;
 
 function busInit() {
-	buslist = $('#busList');
+	busI = $('#bus');
 	bus();
 }
 
 function bus() {
-	buslist.empty();
+	busI.append('<ul id="busListN" class="fadeUL">');
+	var bNew = $('#busListN'), bOld = $('#busList');
+	bNew.hide();
 
 	$.get(burl, function(data) {
 		$(data).find('prd').each(function() {
@@ -19,8 +21,13 @@ function bus() {
 			when = Math.floor(when);
 			if (when < 0) when = 0;
 			if (!(parseInt($(this).find('rt').text()) == 18 && parseInt($(this).find('stpid').text()) == 1580) && when > 0) {
-				buslist.append('<li><span class="route">' + $(this).find('rt').text() + '</span> <span class="dest">' + $(this).find('des').text().replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>') + '</span> <span class="min">' + (when < 1 ? 'Due' : when) + '</span></li>');
+				bNew.append('<li><span class="route">' + $(this).find('rt').text() + '</span> <span class="dest">' + $(this).find('des').text().replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>') + '</span> <span class="min">' + (when < 1 ? 'Due' : when) + '</span></li>');
 			}
+		});
+
+		bNew.fadeIn(1000, function() {
+			bOld.remove();
+			bNew.attr("id","busList");
 		});
 
 		schedule((function() {

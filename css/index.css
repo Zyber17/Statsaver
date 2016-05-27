@@ -20,6 +20,9 @@ span.th {
 	font-size: .75em;
 	vertical-align: top;
 }
+ul.fadeUL {
+	position: absolute;
+}
 
 #wrapper {
 	position: absolute;
@@ -117,27 +120,27 @@ span.th {
 }
 
 #wrapper ul#panelwrapper li.panel#bus {
-	bottom: .5em;
-	right: .5em;
+	right: 11.5em;
+	bottom: 7.85em;
 }
-#wrapper ul#panelwrapper li#bus ul#busList {
+#wrapper ul#panelwrapper li#bus ul {
 	max-height: 7.35em;
 }
-#wrapper ul#panelwrapper li#bus ul#busList li {
+#wrapper ul#panelwrapper li#bus ul li {
 	background-color: #444;
 	border-bottom: .05em solid #111;
 	padding: .4em;
 	width: 13em;
 }
-#wrapper ul#panelwrapper li#bus ul#busList li:last-of-type {
+#wrapper ul#panelwrapper li#bus ul li:last-of-type {
 	border-bottom: none;
 }
-#wrapper ul#panelwrapper li#bus ul#busList li span.route {
+#wrapper ul#panelwrapper li#bus ul li span.route {
 	width: 1.75em;
 	display: inline-block;
 	text-align: right;
 }
-#wrapper ul#panelwrapper li#bus ul#busList li span.dest {
+#wrapper ul#panelwrapper li#bus ul li span.dest {
 	margin-left: .5em;
 	font-size: .8em;
 	vertical-align: bottom;
@@ -147,7 +150,7 @@ span.th {
 #wrapper ul#panelwrapper li.panel.train h3, #wrapper ul#panelwrapper li.panel#bus h3 {
 	margin-bottom: .2em;
 }
-#wrapper ul#panelwrapper li.panel.train ul, #wrapper ul#panelwrapper li.panel#bus ul#busList {
+#wrapper ul#panelwrapper li.panel.train ul, #wrapper ul#panelwrapper li.panel#bus ul {
 	border-radius: .5em;
 	overflow: hidden;
 }
@@ -160,8 +163,7 @@ span.th {
 	bottom: 6em;
 	left: .5em;
 }
-#wrapper ul#panelwrapper li.panel.train ul.trainUL {
-	position: absolute;
+#wrapper ul#panelwrapper li.panel.train ul.fadeUL {
 	height: 5.5em;
 }
 #wrapper ul#panelwrapper li.panel.train ul li {
