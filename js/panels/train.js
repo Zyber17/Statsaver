@@ -10,7 +10,7 @@ function trainInit() {
 
 function train() {
 	var orgN = Infinity, orgS = Infinity, redN = Infinity, redS = Infinity, greN = Infinity, greS = Infinity;
-	var orgNS, orgSS, redNS, redSS, greNS, greSS;
+	var orgNS, orgSS, redNS, redSS, greNS, greSS, greSSInv = false;
 
 	$.get(turl, function(data) {
 		$(data).find('eta').each(function() {
@@ -45,6 +45,12 @@ function train() {
 				} else if ($(this).find('rt').text() == 'G' && when < greS) {
 					greS  = when;
 					greSS = $(this).find('destNm').text();
+					var stp = parseInt($(this).find('destSt').text());
+					if (stp == 30139 || stp == 30140) {
+						greSSInv = true;
+					} else {
+						greSSInv = false;
+					}
 				}
 			}
 
@@ -59,7 +65,7 @@ function train() {
 		var south = [
 			{eta: orgS, routeColor: 'org', routeName: redSS},
 			{eta: redS, routeColor: 'red', routeName: orgSS},
-			{eta: greS, routeColor: 'gre', routeName: greSS}
+			{eta: greS, routeColor: (greSSInv ? 'wht' : 'gre'), routeName: greSS}
 		];
 
 		north.sort(function(a, b) {
@@ -73,8 +79,8 @@ function train() {
 		trainSouth.empty();
 
 		for (var i = 0; i < 3; i++) {
-			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+', ETA: '+north[i].eta+'mins</li>');
-			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+', ETA: '+south[i].eta+'mins</li>');
+			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+' <span class="min"> '+north[i].eta+'</span></li>');
+			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+' <span class="min"> '+south[i].eta+'<span></li>');
 		}
 
 
