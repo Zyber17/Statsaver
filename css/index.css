@@ -2,7 +2,7 @@ body {
 	background: #ddd;
 	color: #fff;
 	font-family:'Helvetica Neue',Helvetica,Arial,Verdana,sans-serif;
-	font-size: 26px;
+	font-size: 50px;
 }
 
 a:link, a:visited {
@@ -16,10 +16,6 @@ a:active {
 	color: #e5e5e5;
 }
 
-br {
-	height: 1em;
-}
-
 #wrapper {
 	position: absolute;
 	left: 50%;
@@ -28,7 +24,6 @@ br {
 	margin-top: -450px;
 	width: 1440px;
 	height: 900px;
-	border: 1px solid #F0F;
 	background: #000;
 }
 
@@ -41,7 +36,6 @@ br {
 #wrapper ul#panelwrapper li.panel {
 	display: block;
 	position: absolute;
-	border: 1px solid #fff;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -50,19 +44,23 @@ br {
 }
 
 #wrapper ul#panelwrapper li.panel#time {
-	width: 1440px;
-	height: 28px;
+	width: 100%;
+	height: 1.1em;
 	top: 0;
 	left: 0;
 	text-align: center;
 }
 
 #wrapper ul#panelwrapper li.panel#note {
-	left: 628px;
-	top: 28px;
-	width: 200px;
-	height: 200px;
+	left: calc(720px - 3em);
+	top: 1.1em;
+	width: 6em;
+	height: 6em;
 	overflow: hidden;
+	background-color: #dcc11e;
+	border-radius: .5em;
+	color: #111;
+	padding: .2em;
 }
 
 #wrapper ul#panelwrapper li.panel#note p#noteText {
@@ -70,74 +68,96 @@ br {
 }
 
 #wrapper ul#panelwrapper li.panel#weather {
-	top: 28px;
-	right: 0;
+	top: 1.1em;
+	right: .5em;
 }
-
-#wrapper ul#panelwrapper li.panel#weather canvas#skycon, #wrapper ul#panelwrapper li.panel#weather div#data {
-	display: inline-block;
-	height: 128px;
+#wrapper ul#panelwrapper li.panel#weather #skycon {
+	margin-left: calc(50% - 64px);
 }
-
  #wrapper ul#panelwrapper li.panel#weather div#data {
-	 width: 180px;
 	 vertical-align: top;
  }
-
+ #wrapper ul#panelwrapper li.panel#weather div#data div.wdata {
+ 	display: block;
+	float: left;
+ }
 #wrapper ul#panelwrapper li.panel#weather div#data #temp {
-	font-size: 100px;
+	font-size: 2.5em;
 	font-weight: 200;
 	vertical-align: top;
+	margin-right: .15em;
 }
-
+#wrapper ul#panelwrapper li.panel#weather div#data div#highLow {
+	font-size: .75em;
+	margin-top: .45em;
+}
 #wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li {
-	display: inline-block;
-	width: 80px;
+	text-align: center;
 }
 
+#wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li#highItem {
+	margin-bottom: .25em;
+	padding-bottom: .25em;
+	border-bottom: .05em #ffffff solid;
+}
 
 #wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li#highItem {
 	color: #feccba;
 }
 
 #wrapper ul#panelwrapper li.panel#weather div#data div#highLow ul li#lowItem {
-	text-align: right;
 	color: #c6efff;
 }
 
 #wrapper ul#panelwrapper li.panel#bus {
-	bottom: 0;
-	right: 0;
+	bottom: .5em;
+	right: .5em;
+}
+#wrapper ul#panelwrapper li#bus ul#busList {
+	max-height: 7.35em;
 }
 #wrapper ul#panelwrapper li#bus ul#busList li {
 	background-color: #444;
-	border-bottom: 2px solid #111;
+	border-bottom: .05em solid #111;
+	padding: .4em;
+	width: 10.5em;
 }
 #wrapper ul#panelwrapper li#bus ul#busList li:last-of-type {
 	border-bottom: none;
 }
+#wrapper ul#panelwrapper li.panel.train h3, #wrapper ul#panelwrapper li.panel#bus h3 {
+	margin-bottom: .2em;
+}
+#wrapper ul#panelwrapper li.panel.train ul, #wrapper ul#panelwrapper li.panel#bus ul#busList {
+	border-radius: .5em;
+	overflow: hidden;
+}
 #wrapper ul#panelwrapper li.panel#trainNorth {
-	top: 28px;
-	left: 0;
+	top: 1.1em;
+	left: .5em;
 }
 
 #wrapper ul#panelwrapper li.panel#trainSouth {
-	bottom: 0;
-	left: 0;
+	bottom: .5em;
+	left: .5em;
 }
-#wrapper ul#panelwrapper li.panel.train ul li, #wrapper ul#panelwrapper li#bus ul#busList li {
-	padding: 10px;
-	width: 280px;
+#wrapper ul#panelwrapper li.panel.train ul li {
+	padding: .4em;
+	width: 9.5em;
 }
 #wrapper ul#panelwrapper li.panel.train ul li {
 	color: #ffffff;
+	border-bottom: .05em solid #111;
+}
+#wrapper ul#panelwrapper li.panel.train ul li:last-of-type {
+	border-bottom: none;
 }
 #wrapper ul#panelwrapper li.panel.train ul li.wht {
-	background-color: #ffffff;
+	background-color: #f8f8f8;
 	color: #48aa47;
 }
 #wrapper ul#panelwrapper li.panel.train ul li.gre {
-	background-color: #48aa47;
+	background-color: #219a11;
 }
 #wrapper ul#panelwrapper li.panel.train ul li.red {
 	background-color: #b11b27;
