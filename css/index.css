@@ -157,8 +157,12 @@ span.th {
 }
 
 #wrapper ul#panelwrapper li.panel#trainSouth {
-	bottom: .5em;
+	bottom: 6em;
 	left: .5em;
+}
+#wrapper ul#panelwrapper li.panel.train ul.trainUL {
+	position: absolute;
+	height: 5.5em;
 }
 #wrapper ul#panelwrapper li.panel.train ul li {
 	padding: .4em;

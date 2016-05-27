@@ -2,8 +2,8 @@ var trainNorth, trainSouth;
 var turl = 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=' + window.ctaTrainKey + '&mapid=' + window.trainStop;
 
 function trainInit() {
-	trainNorth = $('#trainN');
-	trainSouth = $('#trainS');
+	trainNorth = $('#trainNorth');
+	trainSouth = $('#trainSouth');
 
 	train();
 }
@@ -75,14 +75,27 @@ function train() {
 			return a.eta - b.eta;
 		});
 
-		trainNorth.empty();
-		trainSouth.empty();
+		trainNorth.append('<ul id="trainNNew" class="trainUL">');
+		trainSouth.append('<ul id="trainSNew" class="trainUL">');
+		var nNew = $('#trainNNew'), sNew = $('#trainSNew'), nOld = $('#trainN'), sOld = $('#trainS');
+
+		nNew.hide();
+		sNew.hide();
 
 		for (var i = 0; i < 3; i++) {
-			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
-			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'<span></li>');
+			nNew.append('<li class="'+north[i].routeColor+'">'+north[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
+			sNew.append('<li class="'+south[i].routeColor+'">'+south[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'</span></li>');
 		}
 
+		nNew.fadeIn(1000, function() {
+			nOld.remove();
+			nNew.attr("id","trainN");
+		});
+
+		sNew.fadeIn(1000, function() {
+			sOld.remove();
+			sNew.attr("id","trainS");
+		});
 
 		schedule(function() {
 			train();
