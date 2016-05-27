@@ -125,6 +125,11 @@ a:active {
 #wrapper ul#panelwrapper li#bus ul#busList li:last-of-type {
 	border-bottom: none;
 }
+#wrapper ul#panelwrapper li#bus ul#busList li span.dest {
+	margin-left: .5em;
+	font-size: .8em;
+	vertical-align: middle;
+}
 #wrapper ul#panelwrapper li.panel.train h3, #wrapper ul#panelwrapper li.panel#bus h3 {
 	margin-bottom: .2em;
 }
