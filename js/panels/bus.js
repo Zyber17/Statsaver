@@ -19,7 +19,7 @@ function bus() {
 			when = Math.floor(when);
 			if (when < 0) when = 0;
 			if (!(parseInt($(this).find('rt').text()) == 18 && parseInt($(this).find('stpid').text()) == 1580) && when > 0) {
-				buslist.append('<li>' + $(this).find('rt').text() + '<span class="dest">' + $(this).find('des').text() + '</span> <span class="min">' + (when < 1 ? 'Due' : when) + '</span></li>');
+				buslist.append('<li>' + $(this).find('rt').text() + '<span class="dest">' + $(this).find('des').text().replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>') + '</span> <span class="min">' + (when < 1 ? 'Due' : when) + '</span></li>');
 			}
 		});
 

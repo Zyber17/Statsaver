@@ -79,8 +79,8 @@ function train() {
 		trainSouth.empty();
 
 		for (var i = 0; i < 3; i++) {
-			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
-			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'<span></li>');
+			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
+			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName.replace(/(\d)(th|rd)/,'$1<span class="th">$2</span>')+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'<span></li>');
 		}
 
 
