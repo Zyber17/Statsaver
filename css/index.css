@@ -16,6 +16,11 @@ a:active {
 	color: #e5e5e5;
 }
 
+span.th {
+	font-size: .75em;
+	vertical-align: top;
+}
+
 #wrapper {
 	position: absolute;
 	left: 50%;
@@ -73,6 +78,8 @@ a:active {
 }
 #wrapper ul#panelwrapper li.panel#weather #skycon {
 	margin-left: calc(50% - 64px);
+	width: 128px;
+	height: 128px;
 }
  #wrapper ul#panelwrapper li.panel#weather div#data {
 	 vertical-align: top;
@@ -125,8 +132,13 @@ a:active {
 #wrapper ul#panelwrapper li#bus ul#busList li:last-of-type {
 	border-bottom: none;
 }
+#wrapper ul#panelwrapper li#bus ul#busList li span.route {
+	width: 1.75em;
+	display: inline-block;
+	text-align: right;
+}
 #wrapper ul#panelwrapper li#bus ul#busList li span.dest {
-	margin-left: .8em;
+	margin-left: .5em;
 	font-size: .8em;
 	vertical-align: bottom;
 	margin-bottom: .1em;
