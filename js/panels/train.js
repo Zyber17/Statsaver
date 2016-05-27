@@ -57,14 +57,14 @@ function train() {
 		});
 
 		var north = [
-			{eta: orgN, routeColor: 'org', routeName: redNS},
-			{eta: redN, routeColor: 'red', routeName: orgNS},
+			{eta: orgN, routeColor: 'org', routeName: orgNS},
+			{eta: redN, routeColor: 'red', routeName: redNS},
 			{eta: greN, routeColor: 'gre', routeName: greNS}
 		];
 
 		var south = [
-			{eta: orgS, routeColor: 'org', routeName: redSS},
-			{eta: redS, routeColor: 'red', routeName: orgSS},
+			{eta: orgS, routeColor: 'org', routeName: orgSS},
+			{eta: redS, routeColor: 'red', routeName: redSS},
 			{eta: greS, routeColor: (greSSInv ? 'wht' : 'gre'), routeName: greSS}
 		];
 
@@ -79,8 +79,8 @@ function train() {
 		trainSouth.empty();
 
 		for (var i = 0; i < 3; i++) {
-			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+' <span class="min"> '+north[i].eta+'</span></li>');
-			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+' <span class="min"> '+south[i].eta+'<span></li>');
+			trainNorth.append('<li class="'+north[i].routeColor+'">'+north[i].routeName+' <span class="min"> '+(north[i].eta < 1 ? 'Due' : north[i].eta)+'</span></li>');
+			trainSouth.append('<li class="'+south[i].routeColor+'">'+south[i].routeName+' <span class="min"> '+(south[i].eta < 1 ? 'Due' : south[i].eta)+'<span></li>');
 		}
 
 
