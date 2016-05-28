@@ -1,4 +1,4 @@
-var noteI, noteText, oldNote = 'ERROR';
+var noteI, noteText, oldNote = 'ERROR', visible = true;
 
 function noteInit() {
 	noteI    = $('#note');
@@ -12,16 +12,23 @@ function note() {
 			if(data != oldNote) {
 				oldNote = data;
 				noteI.fadeIn(1000);
-				noteText.fadeOut(1000, 'swing', false, function() {
+				if (visible) {
+					noteText.fadeOut(1000, function() {
+						noteText.html(data.replace('\n','<br><br>'));
+						noteText.fadeIn(1000);
+					});
+				} else {
 					noteText.html(data.replace('\n','<br><br>'));
-					noteText.fadeIn(1000);
-				});
+				}
+				visible = true;
 			}
 		} else {
 			noteI.fadeOut(1000);
+			visible = false;
 		}
 	}).fail(function() {
 		noteI.fadeOut(1000);
+		visible = false;
 	});
 
 	schedule(function() {
