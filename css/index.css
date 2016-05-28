@@ -79,6 +79,13 @@ ul.fadeUL {
 	top: 1.1em;
 	right: .5em;
 }
+#wrapper ul#panelwrapper li.panel#weather div#weatherAlert {
+	color: #fec309;
+	font-size: 1.5em;
+	position: absolute;
+	top: -.5em;
+	display: none;
+}
 #wrapper ul#panelwrapper li.panel#weather #skycon {
 	margin-left: calc(50% - 64px);
 	width: 128px;
