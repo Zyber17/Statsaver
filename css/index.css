@@ -15,7 +15,11 @@ a:hover {
 a:active {
 	color: #e5e5e5;
 }
-
+svg {
+	width: 1em;
+	height: 1.2em;
+	fill: #ffffff;
+}
 span.th {
 	font-size: .75em;
 	vertical-align: top;
@@ -80,8 +84,8 @@ div.alert {
 }
 
 #wrapper ul#panelwrapper li.panel#weather {
-	top: 1.1em;
-	right: .5em;
+	top: 2.25em;
+	right: 3.5em;
 }
 #wrapper ul#panelwrapper li.panel#weather div#weatherAlert {
 	font-size: 1.5em;
@@ -128,7 +132,7 @@ div.alert {
 }
 
 #wrapper ul#panelwrapper li.panel#bus {
-	right: 11.5em;
+	right: 9.75em;
 	bottom: 7.85em;
 }
 #wrapper ul#panelwrapper li.panel.transit div.transitAlert {
@@ -158,8 +162,17 @@ div.alert {
 	margin-bottom: .1em;
 	display: inline-block;
 }
+#wrapper ul#panelwrapper li.panel svg {
+	display: inline-block;
+	margin-left: .3em;
+	float: left;
+	margin-top : -.1em;
+}
 #wrapper ul#panelwrapper li.panel.train h3, #wrapper ul#panelwrapper li.panel#bus h3 {
-	margin-bottom: .2em;
+	margin-left: .5em;
+	margin-bottom: .3em;
+	display: inline-block;
+	vertical-align: bottom;
 }
 #wrapper ul#panelwrapper li.panel.train ul, #wrapper ul#panelwrapper li.panel#bus ul {
 	border-radius: .5em;
