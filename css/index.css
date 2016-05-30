@@ -23,7 +23,11 @@ span.th {
 ul.fadeUL {
 	position: absolute;
 }
-
+div.alert {
+	color: #fec309;
+	position: absolute;
+	display: none;
+}
 #wrapper {
 	position: absolute;
 	left: 50%;
@@ -80,11 +84,8 @@ ul.fadeUL {
 	right: .5em;
 }
 #wrapper ul#panelwrapper li.panel#weather div#weatherAlert {
-	color: #fec309;
 	font-size: 1.5em;
-	position: absolute;
 	top: -.5em;
-	display: none;
 }
 #wrapper ul#panelwrapper li.panel#weather #skycon {
 	margin-left: calc(50% - 64px);
@@ -129,6 +130,9 @@ ul.fadeUL {
 #wrapper ul#panelwrapper li.panel#bus {
 	right: 11.5em;
 	bottom: 7.85em;
+}
+#wrapper ul#panelwrapper li.panel.transit div.transitAlert {
+	font-size: 5em;
 }
 #wrapper ul#panelwrapper li#bus ul {
 	max-height: 7.35em;

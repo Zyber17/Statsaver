@@ -13,6 +13,9 @@ function train() {
 	var orgNS, orgSS, redNS, redSS, greNS, greSS, greSSInv = false, orgND, orgSD, redND, redSD, greND, greSD;
 
 	$.get(turl, function(data) {
+		$('#trainNorthAlert').fadeOut(1000);
+		$('#trainSouthAlert').fadeOut(1000);
+
 		$(data).find('eta').each(function() {
 			var when;
 			if (parseInt($(this).find('isApp').text()) == 1) {
@@ -110,6 +113,15 @@ function train() {
 		schedule(function() {
 			train();
 		}, 1);
+	}).fail(function() {
+		$('#trainN').fadeOut(1000);
+		$('#trainS').fadeOut(1000);
+		$('#trainNorthAlert').fadeIn(1000);
+		$('#trainSouthAlert').fadeIn(1000);
+
+		schedule((function() {
+			train();
+		}), 1);
 	});
 
 }
