@@ -87,7 +87,7 @@ div.alert {
 	top: 2.25em;
 	right: 3.5em;
 }
-#wrapper ul#panelwrapper li.panel#weather div#weatherAlert {
+#wrapper ul#panelwrapper li.panel#weather div#severeWeather {
 	font-size: 1.5em;
 	top: -.5em;
 }

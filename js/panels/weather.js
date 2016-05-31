@@ -50,9 +50,9 @@ function weather() {
 		skycons.set('skycon', (rainSoon ? 'rain' : data.currently.icon));
 
 		if ("alert" in data) {
-			$('#weatherAlert').fadeIn(1000);
+			$('#severeWeather').fadeIn(1000);
 		} else {
-			$('#weatherAlert').fadeOut(1000);
+			$('#severeWeather').fadeOut(1000);
 		}
 
 
