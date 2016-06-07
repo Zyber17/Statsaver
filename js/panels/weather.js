@@ -36,6 +36,9 @@ function weather() {
 	var url = 'https://api.forecast.io/forecast/' + window.forcastAPIKey + '/' + window.lat + ',' + window.long + '?exclude=hourly,flags';
 	console.log(url);
 	$.getJSON(url, function(data) {
+		$('#weatherAlert').fadeOut(1000);
+		$('#weatherInfo').fadeIn(1000);
+
 		temp.html(Math.round(data.currently.temperature));
 		high.html(Math.round(data.daily.data[0].temperatureMax));
 		low.html(Math.round(data.daily.data[0].temperatureMin));
@@ -60,5 +63,8 @@ function weather() {
 		schedule(function() {
 			weather();
 		}, 5);
+	}).fail(function() {
+		$('#weatherAlert').fadeIn(1000);
+		$('#weatherInfo').fadeOut(1000);
 	});
 }
