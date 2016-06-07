@@ -28,6 +28,7 @@ ul.fadeUL {
 	position: absolute;
 }
 div.alert {
+	font-family: "Apple Color Emoji";
 	color: #fec309;
 	position: absolute;
 	display: none;
