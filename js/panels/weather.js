@@ -52,7 +52,7 @@ function weather() {
 		}
 		skycons.set('skycon', (rainSoon ? 'rain' : data.currently.icon));
 
-		if ("alert" in data) {
+		if ("alert" in data || "alerts" in data) {
 			$('#severeWeather').fadeIn(1000);
 		} else {
 			$('#severeWeather').fadeOut(1000);
