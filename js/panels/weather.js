@@ -3,11 +3,11 @@ var skycons, temp, high, low, wAlert;
 function weatherInit() {
 	var canvas = $('#skycon')[0];
 
-	canvas.width  = 256;
-	canvas.height = 256;
-	// canvas.style.width = "128px";
-	// canvas.style.height = "128px";
-	//canvas.getContext('2d').scale(2,2);
+	canvas.width  = 320;
+	canvas.height = 320;
+	// canvas.style.width = "160px";
+	// canvas.style.height = "160px";
+	// canvas.getContext('2d').scale(2,2);
 
 	skycons = new Skycons({
 		"monochrome": false,

@@ -85,7 +85,7 @@ div.alert {
 }
 
 #wrapper ul#panelwrapper li.panel#weather {
-	top: 2.25em;
+	top: 1.25em;
 	right: 3.5em;
 }
 #wrapper ul#panelwrapper li.panel#weather div#severeWeather {
@@ -93,9 +93,9 @@ div.alert {
 	top: -.5em;
 }
 #wrapper ul#panelwrapper li.panel#weather #skycon {
-	margin-left: calc(50% - 64px);
-	width: 128px;
-	height: 128px;
+	margin-left: calc(50% - 80px);
+	width: 160px;
+	height: 160px;
 }
  #wrapper ul#panelwrapper li.panel#weather div#data {
 	 vertical-align: top;
