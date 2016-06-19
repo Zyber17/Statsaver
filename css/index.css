@@ -69,8 +69,8 @@ div.alert {
 }
 
 #wrapper ul#panelwrapper li.panel#note {
-	left: calc(720px - 3em);
-	top: 1.1em;
+	right: 10em;
+	top: 1.25em;
 	width: 6em;
 	height: 6em;
 	overflow: hidden;
@@ -193,7 +193,7 @@ div.alert {
 }
 #wrapper ul#panelwrapper li.panel.train ul li {
 	padding: .4em;
-	width: 10em;
+	width: 11em;
 }
 #wrapper ul#panelwrapper li.panel.train ul li {
 	color: #ffffff;
