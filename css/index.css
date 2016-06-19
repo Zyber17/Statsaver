@@ -74,14 +74,20 @@ div.alert {
 	width: 6em;
 	height: 6em;
 	overflow: hidden;
-	background-color: #dcc11e;
+	background-image: url('../img/note.png');
+	background-size: contain;
+	background-repeat: no-repeat;
 	border-radius: .5em;
 	color: #111;
-	padding: .2em;
+	padding: .5em .7em .7em .4em;
 }
 
 #wrapper ul#panelwrapper li.panel#note p#noteText {
 	text-overflow: ellipsis;
+	font-family: 'Marker Felt';
+	font-size: .75em;
+	overflow: hidden;
+	height: 5.05em;
 }
 
 #wrapper ul#panelwrapper li.panel#weather {
