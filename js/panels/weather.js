@@ -5,9 +5,12 @@ function weatherInit() {
 
 	canvas.width  = 320;
 	canvas.height = 320;
-	// canvas.style.width = "160px";
-	// canvas.style.height = "160px";
-	// canvas.getContext('2d').scale(2,2);
+
+	if (window.is2x) {
+		canvas.style.width = "160px";
+		canvas.style.height = "160px";
+		canvas.getContext('2d').scale(2,2);
+	}
 
 	skycons = new Skycons({
 		"monochrome": false,

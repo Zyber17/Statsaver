@@ -22,7 +22,7 @@ function train() {
 				when = 0;
 			} else {
 				var time = $(this).find('arrT').text();
-				var train = new Date(parseInt(time.substr(0,4)), parseInt((time.substr(4,2) - 1)), parseInt(time.substr(6,2)), (parseInt((time.substr(9,2))) +1), parseInt(time.substr(12,2)), parseInt(time.substr(13,2))); // MAKESURE TO DELETE THE +1, that just accounts for
+				var train = new Date(parseInt(time.substr(0,4)), parseInt((time.substr(4,2) - 1)), parseInt(time.substr(6,2)), (parseInt((time.substr(9,2))) + window.timezoneOffset), parseInt(time.substr(12,2)), parseInt(time.substr(13,2)));
 				var now = new Date();
 				when = train - now;
 				when/=60000; // Get minutes from now from miliseconds from now
