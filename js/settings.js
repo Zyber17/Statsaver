@@ -13,3 +13,7 @@ window.busStop = '';
 
 // Note settings
 window.notePath = '';
+
+// General settings
+window.is2x = true;
+window.timezoneOffset = 0;
